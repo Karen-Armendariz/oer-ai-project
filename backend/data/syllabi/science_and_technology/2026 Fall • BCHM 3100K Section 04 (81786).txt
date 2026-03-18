@@ -1,0 +1,724 @@
+2026 Fall BCHM 3100K Section 04 (81786)
+Last updated Mar 12, 2026
+Print
+Course Description and Prerequisites
+Course Outcomes
+School Information
+Faculty Information
+Class Details
+Final Exam Details
+Online/Proctored Tests
+Web Conferencing
+Required Course Materials
+Recommended Course Materials
+Additional Resources
+Resources Needed
+Course Grading
+K Course Grading Policy
+Important Dates
+Course Outline/Assessments
+Course Changes
+Expectations
+Academic Integrity
+Artificial Intelligence
+Attendance Policy and Absences
+Complaints and Grade Appeals
+Learning Resources
+Access and Accommodations
+Well-being and Safety
+Equal Opportunity and Non-Discrimination Statement
+Sexual Misconduct Statement
+keyboard_arrow_down
+searchQuick Search
+Syllabus Library
+Logout
+School of Science and Technology
+BCHM 3100K Section 04 (81786)
+Biochemistry with Laboratory
+2026 Fall
+Course Description and Prerequisites
+
+Prerequisite :CHEM 2212K or (CHEM 2211K and BIOL 3400K) or (CHEM 2211K and ISCI 3800) A study of the structure and function of biological molecules, enzymology, metabolism and bioenergetics. Upon completion of this course, students will: (1) describe the three dimensional structural and functional relationship of proteins; (2) trace intermediary metabolism from macromolecules to carbon dioxide including both anabolic and catabolic reactions of glucose; (3) explain enzymatic catalysis with regard to mechanism and kinetics; (4) explain the structure and function of major classes of macromolecules; (5) use technological resources to investigate biochemical problems; (6) apply the scientific method to address hypothetical problems.
+
+Course Outcomes
+
+Upon completion of this course, students will:
+
+(1) Describe the three-dimensional structure and functional relationship of proteins; 
+
+(2) trace intermediary metabolism from macromolecules to carbon dioxide including both anabolic and catabolic reactions of glucose; 
+
+(3) explain enzymatic catalysis with regard to mechanism and kinetics; 
+
+(4) explain the structure and function of major classes of macromolecules; 
+
+(5) use technological resources to investigate biochemical problems; 
+
+(6) apply the scientific method to address hypothetical problems. 
+
+School Information
+Vision Statement
+
+The School of Science and Technology (SST) will become recognized in the region and the state for excellence in STEM education at an open access institution. SST faculty will provide effective and relevant courses and programs in science, math, and technology which are characterized by interdisciplinary learning, novel use of educational technology, and an active learning environment that stimulates critical thinking.
+
+Mission Statement
+
+The School of Science and Technology is committed to providing an innovative outcomes-based learning experience for all students of Georgia Gwinnett College. It provides programs of study in biology, math, exercise science, and information technology that offer its students disciplinary and interdisciplinary courses, as well as practical and applied learning experiences that prepare them for post-graduate schooling or for positions of responsibility in education, business, medicine or government. The SST also provides general education experiences that produce graduates who demonstrate math, science, and information technology literacy, and that foster an understanding of the role of these disciplines in our society and in an uncertain and changing world. The School’s faculty maintain competency in their discipline and are knowledgeable of methods of providing innovative active-learning environments.
+
+School of Science and Technology Policies
+Class Attendance and Financial Aid
+
+Please be aware that faculty check attendance in each of your courses and are required to report to the Registrar students who never attend or cease attending a course. Students who are reported as never attended or have ceased attending a course, Financial Aid will be notified and is required to adjust your financial aid award accordingly. If you have any questions about how not attending a course for which you are registered will affect your financial aid eligibility, please contact the Financial Aid Office.
+
+If you feel that you are unable to complete your courses due to illness or family emergency, contact the Registrar’s Office to attempt to withdraw from your courses without penalty.
+
+Health & Safety Policy
+
+Certain laboratories include use of strong acids, solvents, and preservatives. Any pregnant women, hypersensitive individuals, or immunocompromised people should report their condition to the instructor and to their physician, preferably before contact with the materials (see lab exercises). Additional instructions for lab will be presented during the first lab. Students are required to follow all instructions. Students failing to conform to lab rules and safety precautions will be first warned by removal from the lab. On second offense, students will be removed from both lecture and lab
+
+Social Media
+
+Follow the School of Science and Technology on Facebook. You will hear about important events and information including Career Services events, scholarships, studies abroad opportunities, summer research opportunities, and employment opportunities.
+
+Faculty Information
+Name: Misael Romero-Reyes
+Email: mromeroreyes@ggc.edu
+Office: A-1087
+Office Hours: Available by request or appointment.
+Department: Chemistry
+Curriculum Vitae:
+Curriculum Vitae
+Class Details
+
+Course Details
+BCHM 3100K Section 04 (81786)
+Course Title: Biochemistry with Laboratory
+Credit Hours: 4
+Semester Start Date: 08/10/2026 Semester End Date: 12/08/2026
+Course Start Date: 08/10/2026 Course End Date: 11/30/2026
+Class Meeting Day(s): MW
+Class Times: 1100 - 1215  
+Modality: In Person
+Meeting Location: A-1380
+Lab Meeting Day: M
+Lab Location: H2-2206
+Lab Times: 1400 - 1645
+
+
+
+
+
+
+
+Final Exam Details
+
+The final exam will be given during the week of December 2-8 (Full Session and Session B). The date and time of the final exam is set by the registrar and will be posted at the midpoint of the semester. The exam schedule cannot be changed at the convenience of the student. You should not plan to be absent during that week. A make-up final exam will only be given in cases of a verifiable excused absence. 
+
+Online/Proctored Tests
+
+This course requires the use of a proctored testing service/software such as Respondus LockDown Browser, Respondus Monitor, or ProctorU, and a webcam for online exams. The webcam can be built into your computer or can be the type that plugs in with a USB cable. The software may require you to scan the room in which you are taking the test with your webcam. The video of the room scan is only available to me, as well as appropriate IT staff and administrators.
+
+If you are at home and have privacy concerns about a webcam scan of your surroundings, you can take the test anywhere you feel comfortable. If you cannot identify such a place, contact me before the date of the test to arrange for a separate room on campus for testing. 
+
+Web Conferencing
+
+This course will use [Microsoft Teams OR Zoom] for video conferencing sessions and collaboration activities. 
+
+Some or all of the sessions may be recorded. Recordings may be shared in accordance with recording guidelines.
+
+Required Course Materials
+Fundamentals of Biochemistry
+ISBN: 9781119903505
+Authors: Destin Heilman, Stephen Woski, Donald Voet, Judith G. Voet, Charlotte W. Pratt
+Publisher: John Wiley & Sons
+Publication Date: 2024-05-14
+Notes
+
+Or other text the instructor prefers
+
+Fundamentals of Biochemistry
+ISBN: 1118918401
+Authors: Donald Voet, Judith G. Voet, Charlotte W. Pratt
+Publisher: Wiley
+Publication Date: February 29, 2016
+Edition: 5th
+Notes
+
+Most of the Chapters will reference this specific book, but the newest edition will also work. 
+
+Aktiv
+Subtitle: Homework Platform
+Notes
+
+https://aktiv.com/
+
+Recommended Course Materials
+Boundless Lab Notebook
+Notes:
+
+You can also use the carbonless copy you used for your Organic I and II courses. The boundless lab notebook can be of any kind/size (just no spirals).
+
+Scientific Calculator
+Notes:
+
+You are required to have a scientific calculator for this course. Any type you know how to use is acceptable. Bring your calculator to every class and every lab session, and know how to use it! Be sure to bring your calculator to all exams and to the laboratory practical exam. Only individual calculators may be used during the exams. Calculators may not be shared. Cell phones, laptops, or other non-calculator devices may not be used as substitutes for calculators on quizzes or examsYou are required to have a scientific calculator for this course. Any type you know how to use is acceptable. Bring your calculator to every class and every lab session, and know how to use it! Be sure to bring your calculator to all exams and to the laboratory practical exam. Only individual calculators may be used during the exams. Calculators may not be shared. Cell phones, laptops, or other non-calculator devices may not be used as substitutes for calculators on quizzes or exams
+
+Safety Googles
+Notes:
+
+You can get them at the bookstore or any store that sells them. 
+
+Additional Resources
+Brightspace Pulse
+Notes:
+
+Recommended to download this app:
+
+Download Brightspace Pulse (this is the D2L app) – this is a very important way to keep up with class activities and take any online assessment (See picture of the D2L app). 
+
+Resources Needed
+Lab book (physical or online) is required. Clarify with your professor on their preference. 
+You are required to have a scientific calculator for this course. Any type you know how to use is acceptable. Bring your calculator to every class and every lab session and know how to use it! Be sure to bring your calculator to all exams and to the laboratory practical exam. Only individual calculators may be used during the exams. Calculators may not be shared. Cell phones, laptops, or other non-calculator devices may not be used as substitutes for calculators on quizzes or exams.
+Course Grading
+
+Grading Scale
+
+Lecture: 75% of course grade. We will have weekly assignments, quizzes (per few units) and exams throughout the semester. In class exams will count 40% of your final grade and the cumulative final exam worth 15% of your grade, while homework, and in class activities are worth 45%.
+
+Grading Category Class
+
+	
+
+% Weight for Class
+
+	
+
+% Weight Overall
+
+
+
+
+Coffee Chat and Notes
+
+	
+
+10%
+
+	
+
+7.5%
+
+
+
+
+Problems of the Week
+
+	
+
+10%
+
+	
+
+7.5%
+
+
+
+
+Quizzes
+
+	
+
+10%
+
+	
+
+7.5%
+
+
+
+
+Tests (in-class)
+
+	
+
+40%
+
+	
+
+30%
+
+
+
+
+Final Exam
+
+	
+
+20%
+
+	
+
+15%
+
+
+
+
+Presentations
+
+	
+
+10%
+
+	
+
+7.5%
+
+
+
+
+Total for Class
+
+	
+
+100%
+
+	
+
+75%
+
+Grading Category for Class. 
+
+Lab: 25% of course grade. There will be a quiz or assignment, or both associated with each lab exercise. Some of the lab exercises cover more than one lab session.
+
+Grading Category Lab
+
+	
+
+% Weight for Lab
+
+	
+
+% Weight Overall
+
+
+
+
+Quizzes and Assignments
+
+	
+
+70%
+
+	
+
+17.5.%
+
+
+
+
+Lab Practical
+
+	
+
+20%
+
+	
+
+5%
+
+
+
+
+Attendance and Participation
+
+	
+
+10%
+
+	
+
+2.5%
+
+
+
+
+Total for Lab
+
+	
+
+100%
+
+	
+
+25%
+
+Grading Category Lab
+
+Late Work Policy
+
+When the assignment is submitted
+
+	
+
+Penalty
+
+
+
+
+By the assigned due date 
+
+	
+
+None
+
+
+
+
+Less than 24 hours past the due date
+
+	
+
+-10%
+
+
+
+
+More than 24 hours past the due date
+
+	
+
+-40%, Make sure the assignment is submitted
+
+Late Work Policy
+
+Assessment Tools
+
+Problems of the Week: will be over the learning outcomes covered the during that week in class. Each will be worth equally and make up 10% of your lecture grade. Each problem of the week will be due on Sunday nights.
+
+Quizzes: After each couple units, there is going to be a quiz associated with it. The quiz will go live after we finish a chapter, and it will be open for a week. You will have unlimited attempts to get this quiz right during that week period.
+
+In Class Exams: There will be an exam every 3-4 chapters. There will be a total of 4 exams during this semester. The goal of these is to enforce what we see in the lecture, problems of the week and quizzes.
+
+Presentations: There will be a variety of presentations. It is important that you stay up to date in these and the topics to be covered.
+
+The Final Exam will be worth 20% of your grade and will contain both multiple choice questions as well as essay/problem solving questions.
+
+Pre-lab assignments: will be given before the start of each lab. They will be over the pre-reading (going through the lab background and protocol) you should do prior to each lab. You are not permitted to do the lab if you have not done the pre-lab assignment. There will be a total of 6-7 lab quizzes and each quiz will be ~5-10 points. Combined with your worksheets and lab notebook, they will constitute 70% of your lab grade.
+
+Labs will have a worksheet associated it with it. There will be 6-7 lab worksheets and each will be worth between 25 and 50 points. Together with the weekly quizzes, they will make up 70% of your lab grade.
+
+There will be one lab practical. It will consist of both paper problems and practical application. It will make up 20% of your lab grade.
+
+To really get your most out of lab you must come, and you must participate. To earn attendance points you must be in lab on time. To earn participation points you must be actively engaged in the lab. This means asking questions, doing the work, working with your partner in a positive manner, and coming prepared to do that day’s tasks. Attendance and Participation in lab count 10% of the lab grade.
+
+Grading Percentages or Points (faculty-specific)
+
+Late Work Policy (faculty-specific)
+
+Assessment Tools (faculty-specific)
+
+GGC/SST Biology Department Lab Attendance Policy
+
+Students must not be absent from laboratory periods. Students should also understand that they are responsible for all material covered during their absences and that they are responsible for the academic consequences of the absences. Students who are absent because of their participation in college-approved activities, such as field trips and extracurricular events, will be permitted to make up the work missed during their absences, if possible. Some labs are extremely difficult or impossible to make up due to their nature.
+
+ Laboratory attendance will be taken within the first 15 minutes. Arriving late to lab, after attendance, is the equivalent of an absence, as the student will have missed important information and directions. If you are late to lab, you may not be allowed to participate.
+
+ Students can miss up to two laboratory sessions without additional penalties. For online laboratories, a student can miss up to two laboratory assessments without additional penalties. 
+
+ Once the maximum absences have occurred, the student should consider withdrawing from the course or, at a minimum, speak with their instructor about withdrawing. If they choose not to withdraw from the course, their laboratory grade will drop one letter grade and continue to drop a letter grade for any additional absences.
+
+K Course Grading Policy
+
+K-Course Policy: Set by the School of Science and Technology
+
+Lecture Lab Final Grade in Class
+
+
+
+
+A or B or C
+
+	
+
+A or B or C
+
+	
+
+A or B or C
+
+
+
+
+D
+
+	
+
+A or B or C or D
+
+	
+
+D
+
+
+
+
+A or B or C or D
+
+	
+
+D
+
+	
+
+D
+
+
+
+
+F
+
+	
+
+A or B or C or D or F
+
+	
+
+F
+
+
+
+
+A or B or C or D or F
+
+	
+
+F
+
+	
+
+F
+
+ 
+
+This K course is an integrated classroom and laboratory learning experience with a single final course grade determined from the proportional weight of the classroom and laboratory experience. The grade received in BIOL 1107K includes 75% classroom and 25% laboratory. However, students must earn a C or higher in both class and laboratory to earn a single final course grade of C or higher. As an example for a single final grade calculation, a student in BIOL 1107K earns a 95% (A grade) in the classroom experience and a 55% (F grade) in the laboratory experience. Although the proportional percentage is [(0.75x95) + (0.25x55)] = 85%, the student’s single final grade will be an F for the course. If a student requires a single final course grade of C or higher to progress in a course sequence, meet pre-requisites, satisfy academic program requirements, etc., they must earn at least a C in both the classroom and the laboratory experience. In this case, if a D or F is earned in either portion and the student must repeat the course to satisfy course sequence or academic program requirements, the student must repeat both the classroom and laboratory experience. See the table above for clarification.
+
+Important Dates
+
+
+
+
+Activity	Date
+Tuition due Tuition and Fees Deadlines 	July 30
+Housing move-in 	Aug. 6-7
+Classes begin (Full Session and Session A) 	Aug. 10
+Drop/add ends (Session A) 	Aug. 13 
+Drop/add ends (Full Session) 	Aug. 16
+Mid-term grades due (Session A) 	Sept. 2 
+Labor Day holiday 	Sept. 7 
+Last day to withdraw with "W" (Session A) 	Sept. 10
+Classes end (Session A) 	Sept. 30 
+Apply to graduate deadline for Spring 2027 	Oct. 1 
+Mid-term grades due (Full Session) 	Oct. 1
+Final exams (Session A) Final exam schedules (login required) 	Oct. 1-2
+Classes begin (Session B) 	Oct. 5
+Drop/add ends (Session B) 	Oct. 8
+Last day to withdraw with "W" (Full Session) 	Oct. 13
+Mid-term grades due (Session B) 	Oct. 29
+Last day to withdraw with "W" (Session B) 	Nov. 4
+Thanksgiving break 	Nov. 22-29
+Classes end (Full Session) 	Nov. 30
+Reading day (Full Session) 	Dec. 1 
+Classes end (Session B) 	Dec. 1
+Final exams (Full Session and Session B) Final exam schedules (login required) 	Dec. 2-8
+Grades due (Full Session and Session B, except eCore) 	Dec. 10, Noon
+Commencement 	Dec. 11 
+Grades available in Grizzly Den within Banner 	Dec. 14
+Important Dates from the GGC Academic Calendar
+Course Outline/Assessments
+
+(See the Course Schedule on D2L)
+
+Course Changes
+
+This course syllabus provides a general plan for this course. I reserve the right to make changes to the syllabus, including changes to assignments, projects, examinations, etc., in order to accommodate the needs of the class as a whole and fulfill the goals of the course.
+
+Expectations
+
+To be successful in this course, you should:
+
+Read the syllabus in its entirety.
+Attend class daily.
+Arrive on time.
+Be prepared (complete readings and assignments) to engage in class discussions.
+Stow your devices or set them to silent to minimize disruptions.
+Check MyCourses each day for announcements, content, discussions, assignments, tests, grades, and more.
+Respond to my emails (check Claw Mail daily) in a timely manner using appropriate language and grammar.
+Use my office hours or schedule appointments to discuss concerns.
+Familiarize yourself with the Student Honor Statement: 
+We will not lie, steal, or cheat, nor tolerate the actions of those who do.  
+
+To support your success, I will:
+
+Provide office hours or appointment options in the Faculty Information section of the syllabus.
+Respond to your emails in a timely manner (see the Faculty Information section of the syllabus).
+Provide feedback and grades in a timely manner.
+Assist you with locating and engaging with resources provided by the college. This syllabus includes some suggestions. Keep reading for details.
+Academic Integrity
+
+GGC students are expected to demonstrate integrity and honesty in their courses and to complete work according to my expectations. You are responsible for avoiding every aspect or appearance of academic dishonesty. While it is impossible to list all acts of academic dishonesty, examples are listed below. Additional details on academic integrity are found in the GGC Academic Policy Manual, Academic Integrity Policy for Academic Dishonesty Matters (Policy 4.1.1.1.2). 
+
+ Academic Dishonesty.  Examples of specific prohibited actions include, but are not limited to, the following: 
+
+Academic Misconduct: Performing, attempting to perform, or assisting another in performing any act of academic dishonesty. 
+
+Cheating: This act of dishonesty includes, but is not limited to, giving information to or taking information from other students during examinations. Cheating is also committed when students copy from unauthorized sources and/or represent some other person’s work as their own. Collaboration on out-of-class assignments or examinations is considered cheating unless specifically stated. The use of Artificial Intelligence (“AI”) on any assignment submitted for credit is generally prohibited. See my statement on Artificial Intelligence Use below.
+
+Plagiarism: This category includes copying material from unpublished or published sources, including electronic resources, and submitting that material as the student’s own work. Students are responsible for identifying the proper source and for giving credit to that source anytime that they present ideas that are not their own. 
+
+Unauthorized Use or Possession of Materials or Resources: Students must not use or possess unauthorized materials or resources in an academic activity. 
+
+Collusion: This act of dishonesty includes, but is not limited to, buying or selling material that can be misrepresented as a student’s own work. In addition, students who fail to report known acts of academic dishonesty on the part of others may be held responsible for collusion. 
+
+Previously submitted material: Students may not submit work that has been or is being concurrently submitted, in whole or in part, in another class without first having received permission to do so from all the professors involved. 
+
+Misrepresentation or falsification of material: This act includes, but is not limited to, misrepresenting, fabricating, or altering academic material. In addition, students must not take an examination or test in the name of another student or present another student’s work as their own. 
+
+Misrepresentation of circumstances: Students must not misrepresent personal circumstances (e.g., illness, conflicting responsibilities, etc.) to avoid meeting academic responsibilities or to gain an academic advantage. 
+
+To avoid plagiarism, you must appropriately cite the sources of others’ ideas, thoughts, and words that appear in your original work. In addition to requesting assistance from the Academic Enhancement Center, me, or trusted peers, you may use a variety of technologies to improve your writing. These tools, which may include proofreading and editing features of word processing software, do not alter your work to an extent that fundamentally affects your claim to authorship.  
+
+I may use the Originality Check feature of Turnitin to see how similar your work is to online sources and to assist you in learning how to cite sources appropriately to avoid potential plagiarism. I may also use applications to detect writing generated by artificial intelligence (AI). Some writing tools use AI to suggest edits, while other AI technologies, such as ChatGPT, are meant to simulate human conversation and produce writing that appears to be authored by a person. Although AI can be used for educational purposes and to develop or improve one’s writing, submitting work containing AI-generated text, unless I request or explicitly allow it as part of an assignment, is prohibited. See my statement on Artificial Intelligence Use below.
+
+All violations of the Academic Integrity Policy shall be resolved via the Faculty Adjudication Process and/or the Formal Resolution (Student Conduct Board hearing through the Dean of Students Office) as outlined in the Academic Integrity Policy for Academic Dishonesty Matters (Policy 4.1.1.1.2).
+
+Artificial Intelligence
+
+All students should be familiar with the college's policy on Acceptable Use of Artificial Intelligence (AI) for Academic and Administrative Purposes and the Academic Integrity Policy for Academic Dishonesty Matters.
+
+For this course, my expectation regarding the use of Artificial Intelligence (AI) is as follows:
+
+Attendance Policy and Absences
+
+Attendance is a strong indicator of success in this class! Please plan to attend all class sessions and be on time. If you must be absent, please review the college’s attendance policy. 
+
+It is a best practice to inform me when you must be absent (see my preferred communication method) and discuss the option(s), if any, to make up missed assignments, tests, exams, etc. You do not have to share why you are absent with me directly. If you wish to provide documentation needed for the absence to be considered excused, you may submit this to the Dean of Students, and they will work with you and me.
+
+Complaints and Grade Appeals
+
+If you have course-related issues, please schedule an appointment to meet with me. (See the Faculty Information above for contact details). If we are unable to resolve the issue you may contact the department chair. You may seek further assistance, if needed, through the Dean’s office. The college also offers you the option to file a written student complaint. 
+
+Final grade appeals may also be filed if you believe there is an error. 
+
+The student complaint process and the grade appeal process are both outlined in the Student Handbook. 
+
+Learning Resources
+
+The college offers services and resources designed to help you succeed. 
+
+Academic Enhancement Center (AEC)
+
+The AEC provides in-person tutoring, online tutoring via Tutor.com, and structured study sessions known as Peer Supplemental Instruction (PSI), as well as academic coaches who can advise you on study, test-taking, and time management skills. 
+
+Kaufman Library
+
+The Kaufman Library is home to full-text articles, e-books, reports, statistics, and videos. The librarians and library staff are available to assist you with locating resources, research needs, course assignments, and more. 
+
+Disability Services
+
+Disability Services provides reasonable accommodations to ensure accessible educational and social environments. If you believe you require an accommodation, initiate a request for services. 
+
+Information Technology
+
+You may contact the Help Desk if you experience issues with using the technology needed for this course. Software, including Microsoft Office 365 and Adobe Express, is available for your use in computer labs and classrooms. If you need access to a laptop, the college offers a limited quantity, need-based laptop loaner program.
+
+Access and Accommodations
+Access and Accommodations
+
+It is important that all students have equal access to the classroom and their education. If you have already established accommodations with Disability Services, please provide me with your Faculty Accommodation Notification, with your approved accommodations listed at your earliest convenience.
+
+If you have not yet established services through Disability Services (located in D-1404), but have a permanent disability (such as, but not limited to: mental health, attention-related, learning, vision, hearing, physical, or health impacts), or a temporary condition that requires accommodations, you are encouraged to contact Disability Services at 678-407-5195 or disabilityservices@ggc.edu.
+
+Disability Services offers resources and coordinates reasonable accommodations for students with disabilities and/or temporary health conditions. Georgia Gwinnett College is committed to creating an inclusive and accessible learning environment consistent with federal and state law.
+
+Pregnancy and Pregnancy-Related Conditions Accommodations Under Title IX
+
+GGC is committed to compliance with Title IX and to supporting the academic success of pregnant students and students with pregnancy-related conditions (pregnancy, childbirth, loss of pregnancy, lactation, and all related medical conditions or recovery).
+
+Students experiencing pregnancy or pregnancy-related conditions may request reasonable accommodations, including but not limited to excused absences, making up missed assignments, restroom breaks, a larger desk, lactation breaks, access to lactation spaces, etc. To request pregnancy-related accommodations, students should contact the Office of Disability Services (email: disabilityservices@ggc.edu; phone: 678-407-5883) or the Office of Equal Opportunity and Title IX Compliance (email: TitleIX@ggc.edu; phone: 678-407-5085).
+
+Students who believe they have been subject to discrimination or harassment because of their pregnancy status or pregnancy-related condition(s) may file a complaint with the Office of Equal Opportunity and Title IX Compliance.
+
+Well-being and Safety
+
+The college offers many resources and services to support your physical and emotional well-being in a safe environment. 
+
+Student Emergency Assistance Programs
+
+Our emergency assistance programs include:
+
+Care Pantry
+Provides food and necessities to students experiencing financial constraints. 
+
+Grizzly Thrift
+Provides access to free clothing for students. 
+
+Health and Wellness Programs
+
+Health Services offers a variety of services to help you stay well. 
+
+Medical Services
+Provides care for minor injuries and illnesses, diagnostic testing, immunizations, and basic over-the-counter medications. 
+
+Counseling and Psychological Services (CAPS)
+Provides mental health services. 
+
+Wellness and Recreation
+Provides workout facilities, fitness classes, and intramural sports. 
+
+Disability Services
+
+Disability Services provides reasonable accommodations to ensure accessible educational and social environments. If you require an accommodation, initiate a request for services. 
+
+Safety and Security
+
+Public Safety offers many services to help you stay safe on campus, including safety escorts. 
+
+You’ll want to stay informed about campus closures and other safety-related notifications via Rave Alert. 
+
+Grizzly Care Team
+
+The Grizzly Care Team brings together professionals from across the college to help you or other members of the college community who may pose a threat to the safety of the college community or an individual. If you see someone experiencing challenges, appearing distressed, posing a threat to their safety or someone else’s safety, or causing a significant disruption to the GGC community, please submit a Grizzly Care Team referral. 
+
+Equal Opportunity and Non-Discrimination Statement
+Notice of Non-Discrimination
+
+Georgia Gwinnett College is committed to providing a learning, working, and living environment that promotes personal integrity, civility, and mutual respect and is free of all forms of discrimination and harassment. In accordance with applicable law and Georgia Gwinnett College’s Non-Discrimination and Anti-Harassment Policy, Georgia Gwinnett College prohibits discrimination on the basis of an individual’s race, color, sex (including sexual harassment, marital, parental, and pregnancy status), sexual orientation, gender identity, gender expression, ethnicity or national origin, religion, age, genetic information, disability, creed, or veteran status (“protected status”), or any other protected status or characteristic as defined by law, in its programs and activities. No individual shall be excluded from participation in, denied the benefits of, or otherwise be subjected to unlawful discrimination, harassment, or retaliation under any GGC program or activity because of the individual’s protected status.
+
+Georgia Gwinnett College is an equal employment, equal access, and equal educational opportunity institution. It is the policy and practice of our institution to recruit, hire, train, promote, retain, and educate persons without regard to their protected status, as required by applicable state and federal laws (including Title VI, Title VII, Title IX, ADA, Sections 503 and 504 of the Rehabilitation Act, and Executive Order 11246).
+
+Any individual who feels that they may have been discriminated against should contact the Equal Opportunity and Title IX Compliance office at titleix@ggc.edu or 678-407-5085.
+
+Students requiring disability related accommodations, please contact Disability Services.
+
+The following person has been designated to handle inquiries regarding the non-discrimination policies:
+
+Sharon Stellato, J.D., Interim Title IX Coordinator
+
+Building B, Suite 3700
+
+678.407.5085
+
+TitleIX@ggc.edu
+
+For more general information, please visit the Equal Opportunity and Title IX Office’s website.
+
+Sexual Misconduct Statement
+
+Title IX prohibits discrimination on the basis of sex in education programs or activities operated by recipients of Federal financial assistance. Georgia Gwinnett College is committed to creating a safe learning environment for all members of our community, free from gender and sex-based discrimination, including sexual harassment, domestic and dating violence, sexual assault, and stalking, in accordance with Title IX of the Education Amendments of 1972. If you or someone you know is experiencing any of these behaviors, the College has staff and resources on campus to support and assist you. For a list of resources, please visit Sexual Misconduct Resources.
+
+Please note that the Title IX/Sexual Misconduct Policy 4.1.7 designates all faculty members, including teaching assistants, as “Responsible Employees.” Under GGC’s Title IX/Sexual Misconduct Policy, all “Responsible Employees” must report all disclosures of sex or gender-based discrimination or violence to GGC’s Title IX Coordinator. The Title IX Coordinator will reach out to provide resources, support, and information after receiving a report, but community members are not required to respond to such outreach. Reported information will remain private.
+
+If you have (or someone you know has) experienced any form of sex or gender-based discrimination or violence and wish to speak with someone confidentially, please contact GGC’s Title IX Coordinator at TitleIX@ggc.edu or 678-407-5085. For more information regarding GGC’s Title IX procedures, reporting, or support measures, please visit the Equal Opportunity and Title IX Compliance office’s website. 
+
+Support·Community·Privacy Policy·v2026.03.18.15.02·© 2026 Simple Higher Ed
+Syllabus management system
