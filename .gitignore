@@ -7,7 +7,7 @@ __pycache__/
 env/
 
 # Playwright session data
-playwright_user_data/
+backend/playwright_user_data/
 
 # OS / editor files
 .DS_Store
