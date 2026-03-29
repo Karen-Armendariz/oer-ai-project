@@ -111,6 +111,22 @@ Planned features include:
 
 ---
 
+## Known Issues & Team To-Do List
+
+**🚨 High Priority Bug: RAG Semantic Search Hallucination (Open ALG API)**
+Currently, when the system falls back to the Open ALG API for dynamic search, the ChromaDB semantic search is returning overly generic or incorrect textbooks. 
+
+**Example Issue:**
+When querying for `ITEC 1001` (Introduction to Computing), the system accurately fetches the local syllabus, but the Vector DB similarity search returns completely wrong subjects:
+1. *Introduction to Networks*
+2. *Introduction to Information Systems*
+3. *Intermediate Agile Software Development*
+
+**Task for the team:**
+We need to fix this issue! We must tune the API string queries in `oer_client.py` and strictly adjust the `keyword` extraction or ChromaDB distance filtering in `oer_agent.py`. Generic computer science textbooks should NOT be returning an 85% match for the ITEC 1001 syllabus.
+
+---
+
 ## Authors
 
 Karen Armendariz
