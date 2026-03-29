@@ -1,0 +1,4 @@
+School of Science and Technology
+Course Title: ITEC 1001 Section 01 (50491) - Intro to Computing
+Course Description: Introduction to computers and applications software. Upon completion of this course students will: (1) understand the evolution of information technology and future trends; (2) describe the ethical issues surrounding the uses of digital information; (3) demonstrate proficiency in the use of various personal productivity software; (4) understand the functionality and interaction among the main hardware components of a computer and appropriate terminology; (5) acquire basic knowledge of computer security, protection mechanisms and privacy threats on Internet; (6) understand the role of computing tools in supporting collaborative projects; (7) understand the principles of computer networking; (8) understand different types of systems and application software.
+Required Materials: SimNet and ConnectMaster Bundle by McGraw Hill.
