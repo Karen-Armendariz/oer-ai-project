@@ -2,7 +2,10 @@ import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-OUTPUT_DIR = Path("data/syllabi/search_results")
+# Robust path handling: find the project root regardless of where script is run
+SCRIPT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = SCRIPT_DIR.parent
+OUTPUT_DIR = PROJECT_ROOT / "data" / "syllabi" / "search_results"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -126,8 +129,9 @@ def scrape_syllabus(course_query: str):
 
     with sync_playwright() as p:
         context = p.chromium.launch_persistent_context(
-            user_data_dir="playwright_user_data",
-            headless=False
+            user_data_dir=str(PROJECT_ROOT / "playwright_user_data"),
+            headless=False,
+            args=["--disable-blink-features=AutomationControlled"]
         )
 
         page = context.new_page()

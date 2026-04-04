@@ -2,8 +2,10 @@ import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-# Folder where syllabus text and debug files will be saved
-syllabi_folder = Path("data/syllabi")
+# Robust path handling: find the project root regardless of where script is run
+SCRIPT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = SCRIPT_DIR.parent
+syllabi_folder = PROJECT_ROOT / "data" / "syllabi"
 syllabi_folder.mkdir(parents=True, exist_ok=True)
 
 # Exact syllabus card title we want
@@ -11,8 +13,9 @@ target_title = "BIOL 1101K Section 01 (50337)"
 
 with sync_playwright() as p:
     context = p.chromium.launch_persistent_context(
-        user_data_dir="playwright_user_data",
-        headless=False
+        user_data_dir=str(PROJECT_ROOT / "playwright_user_data"),
+        headless=False,
+        args=["--disable-blink-features=AutomationControlled"]
     )
 
     page = context.new_page()

@@ -111,6 +111,31 @@ Planned features include:
 
 ---
 
+## Known Issues & Team To-Do List
+
+**🚨 High Priority Bug: RAG Semantic Search Hallucination (Open ALG API)**
+Currently, when the system falls back to the Open ALG API for dynamic search, the ChromaDB semantic search is returning overly generic or incorrect textbooks instead of strict recommendations. 
+
+**Steps to Reproduce:**
+1. From the project root, start the agent interface:
+   ```bash
+   ./run_agent.sh
+   ```
+2. Enter the following course code when prompted:
+   ```text
+   ITEC 1001
+   ```
+3. Wait for the agent to fetch relevant resources from the Open ALG API and update the index.
+4. **Observe the Error**: The generated OER Recommendation Report accurately recognizes the syllabus, but falsely recommends wildly inaccurate Computer Science books with an identical "85% Score":
+   - *Introduction to Networks*
+   - *Introduction to Information Systems Open Textbook*
+   - *Intermediate Agile Software Development*
+
+**Task for the team:**
+We need to fix this issue! We must tune the API string queries in `oer_client.py` and strictly adjust the `keyword` extraction or ChromaDB distance filtering in `oer_agent.py`. Generic computer science textbooks should NOT be returning an 85% match for the ITEC 1001 syllabus just because they share basic terminology. The RAG architecture must be mathematically stricter.
+
+---
+
 ## Authors
 
 Karen Armendariz
