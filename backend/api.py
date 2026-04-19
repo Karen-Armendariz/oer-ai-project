@@ -1,4 +1,7 @@
+import json
 import logging
+import queue
+import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -7,6 +10,11 @@ from fastapi.exception_handlers import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, model_validator
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from pathlib import Path
+
+from pydantic import model_validator
 
 from backend.config import Settings
 from backend.logging_setup import configure_logging
@@ -17,6 +25,18 @@ from backend.search_syllabus import scrape_syllabus
 logger = logging.getLogger(__name__)
 settings = Settings()
 _service: OERService | None = None
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_BACKEND_STATIC = Path(__file__).resolve().parent / "static"
+_ROOT_STATIC = PROJECT_ROOT / "static"
+
+
+def _ui_index_path() -> Path | None:
+    """Prefer UI next to api.py (always deployed with backend); fallback to repo root/static."""
+    for candidate in (_BACKEND_STATIC / "index.html", _ROOT_STATIC / "index.html"):
+        if candidate.is_file():
+            return candidate
+    return None
 
 
 @asynccontextmanager
@@ -56,6 +76,7 @@ def _setup_cors(application: FastAPI) -> None:
 
 
 _setup_cors(app)
+app.mount("/static", StaticFiles(directory=Path(__file__).resolve().parent / "static"), name="static")
 
 
 class CourseRequest(BaseModel):
@@ -74,6 +95,30 @@ class SearchBody(SearchRequest):
         if st and len(st) < 20:
             raise ValueError("syllabus_text must be at least 20 characters when provided")
         return self
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    return JSONResponse(
+        {
+            "message": "OER AI backend is running",
+            "ui": "/ui",
+            "docs": "/docs",
+            "health": "/health",
+        }
+    )
+
+
+@app.get("/ui", include_in_schema=False)
+def oer_agent_ui():
+    """Browser UI for course search (same pipeline as run_agent.sh)."""
+    index = _ui_index_path()
+    if index is None:
+        raise HTTPException(
+            status_code=404,
+            detail="UI not found (missing backend/static/index.html)",
+        )
+    return FileResponse(index, media_type="text/html")
 
 
 @app.exception_handler(ValueError)
@@ -130,3 +175,40 @@ def search_oer(
         syllabus_text=payload.syllabus_text.strip() if payload.syllabus_text else None,
     )
     return SearchResponse.model_validate(data)
+
+
+@app.get("/oer/search/stream")
+def search_oer_stream(
+    course_query: str,
+    svc: OERService = Depends(get_service),
+):
+    """Server-sent events stream for live UI activity."""
+    if not course_query or len(course_query.strip()) < 3:
+        raise HTTPException(status_code=400, detail="course_query must be at least 3 characters.")
+
+    q: queue.SimpleQueue[dict] = queue.SimpleQueue()
+    done = threading.Event()
+
+    def emit(event: str, data: dict):
+        q.put({"event": event, "data": data})
+
+    def worker():
+        try:
+            emit("start", {"course_query": course_query})
+            payload = svc.search(course_query=course_query, progress_cb=emit)
+            emit("done", payload)
+        except Exception as exc:
+            logger.exception("Stream search failed")
+            emit("error", {"detail": "Search failed."})
+        finally:
+            done.set()
+
+    threading.Thread(target=worker, daemon=True).start()
+
+    def stream():
+        while not (done.is_set() and q.empty()):
+            item = q.get()
+            yield f"event: {item['event']}\n"
+            yield "data: " + json.dumps(item["data"]) + "\n\n"
+
+    return StreamingResponse(stream(), media_type="text/event-stream")

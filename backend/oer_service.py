@@ -38,7 +38,12 @@ class OERService:
         self.store.add_resources(results)
         return len(results)
 
-    def search(self, course_query: str | None = None, syllabus_text: str | None = None) -> dict:
+    def search(
+        self,
+        course_query: str | None = None,
+        syllabus_text: str | None = None,
+        progress_cb=None,
+    ) -> dict:
         if not course_query and not syllabus_text:
             raise ValueError("course_query or syllabus_text is required.")
 
@@ -51,19 +56,31 @@ class OERService:
 
         keywords = extract_keywords_from_syllabus(resolved_text, course_query=course_query)
         logger.info("Keywords extracted: %s", keywords)
+        if progress_cb:
+            progress_cb("keywords", {"keywords": keywords})
 
         ingested = 0
         ingest_error: str | None = None
         try:
+            if progress_cb:
+                progress_cb("ingest_start", {"keywords": keywords})
             ingested = self.ingest_open_alg(keywords)
             logger.info("Ingested %s resources from Open ALG", ingested)
+            if progress_cb:
+                progress_cb("ingest_done", {"ingested": ingested})
         except Exception as exc:
             logger.exception("Open ALG ingest failed; continuing with indexed data only")
             ingest_error = "Open ALG ingest failed; results may be limited to previously indexed resources."
+            if progress_cb:
+                progress_cb("ingest_error", {"message": ingest_error})
 
         query_text = build_rag_query_text(resolved_text, keywords, course_query=course_query)
         k = max(self.settings.retrieval_top_k, self.settings.max_results)
+        if progress_cb:
+            progress_cb("query", {"top_k": k})
         results = self.store.query_oer(query_text, n_results=k)
+        if progress_cb:
+            progress_cb("rank", {})
         ranked = self._rank_results(results, keywords)
 
         return {

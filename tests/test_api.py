@@ -5,7 +5,7 @@ from backend.api import app, get_service
 
 
 class _FakeOERService:
-    def search(self, course_query=None, syllabus_text=None):
+    def search(self, course_query=None, syllabus_text=None, **_kwargs):
         return {
             "query": course_query,
             "syllabus_source": None,
@@ -41,6 +41,20 @@ def test_health(client):
     assert "chroma_ready" in body
 
 
+def test_root_lists_ui(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    data = response.json()
+    assert data.get("ui") == "/ui"
+
+
+def test_ui_page(client):
+    response = client.get("/ui")
+    assert response.status_code == 200
+    assert "text/html" in response.headers.get("content-type", "")
+    assert b"OER AI Assistant" in response.content
+
+
 def test_search_ok(client):
     response = client.post("/oer/search", json={"course_query": "BIOL 1101K"})
     assert response.status_code == 200
@@ -58,3 +72,11 @@ def test_search_empty_body(client):
 def test_search_short_course_query(client):
     response = client.post("/oer/search", json={"course_query": "AB"})
     assert response.status_code in (400, 422)
+
+
+def test_search_stream(client):
+    response = client.get("/oer/search/stream?course_query=BIOL 1101K")
+    assert response.status_code == 200
+    text = response.text
+    assert "event: start" in text
+    assert "event: done" in text
