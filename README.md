@@ -17,6 +17,9 @@ Instead of manually searching syllabi, the system allows a user to enter a cours
 * Search for a syllabus by **course prefix and number**
 * Scrape the full syllabus text
 * Save syllabus content locally for AI processing
+* RAG pipeline with ChromaDB + sentence-transformers
+* Open ALG ingestion and strict relevance scoring
+* FastAPI service for production integrations
 
 Example search:
 
@@ -34,6 +37,8 @@ oer-ai-project
 ├── backend
 │   ├── ingest_data.py        # script used to test syllabus scraping
 │   ├── search_syllabus.py    # search a syllabus by course code
+│   ├── api.py                # FastAPI service
+│   ├── oer_service.py        # production RAG orchestration
 │   ├── data
 │   │   └── syllabi           # scraped syllabus text files
 │   └── playwright_user_data  # browser session storage (ignored by git)
@@ -50,7 +55,7 @@ Python 3.10+
 Install dependencies:
 
 ```
-pip install playwright
+pip install -r backend/requirements.txt
 playwright install
 ```
 
@@ -86,6 +91,85 @@ The script will:
 
 ---
 
+## Run the RAG Agent
+
+From the project root:
+
+```
+./run_agent.sh
+```
+
+---
+
+## Run the API (Production)
+
+From the project root:
+
+```
+./run_api.sh
+```
+
+**Web UI (same behavior as `run_agent.sh`):** open **http://localhost:8000/ui** in your browser, enter a course code, and view the recommendation report.
+
+Example request:
+
+```
+curl -X POST http://localhost:8000/oer/search \
+  -H "Content-Type: application/json" \
+  -d '{"course_query":"BIOL 1101K"}'
+```
+
+---
+
+## Docker
+
+```
+docker build -t oer-rag .
+docker run -p 8000:8000 -v oer-chroma:/app/data/chroma_db oer-rag
+```
+
+Or with Compose (persists ChromaDB):
+
+```
+docker compose up --build
+```
+
+---
+
+## Automated tests
+
+`pytest` is installed **inside** `.venv`, so it is not on your global `PATH`. From the project root:
+
+```
+./run_tests.sh
+```
+
+Or call it explicitly:
+
+```
+./.venv/bin/pytest tests/ -v
+```
+
+---
+
+## Configuration
+
+Environment variables:
+
+* `OPENAI_API_KEY` (optional)
+* `OPENALG_API_KEY` (optional for full metadata)
+* `HF_TOKEN` (optional for faster model downloads)
+* `OER_DISTANCE_THRESHOLD` (default `1.15`)
+* `OER_KEYWORD_MIN_OVERLAP` (default `1`)
+* `OER_MAX_RESULTS` (default `5`)
+* `OER_RETRIEVAL_TOP_K` (default `20`)
+* `OER_LOG_LEVEL` (default `INFO`)
+* `CORS_ORIGINS` (optional; comma-separated origins for browser clients, e.g. `http://localhost:3000`)
+
+Copy `.env.example` to `.env` to configure local production settings.
+
+---
+
 ## Example Output
 
 ```
@@ -99,15 +183,13 @@ Character count: 29813
 
 ---
 
-## Future Development
+## Production Notes
 
-Planned features include:
-
-* scraping Open Educational Resource repositories
-* connecting syllabus topics to relevant OER materials
-* building a **FastAPI backend**
-* connecting a **local AI model (LM Studio)** for recommendations
-* building a web interface for course search
+* The RAG pipeline uses keyword overlap + distance thresholds with a relaxed fallback so courses still get ranked results.
+* Use `OER_DISTANCE_THRESHOLD` and `OER_KEYWORD_MIN_OVERLAP` to tune strictness.
+* API: `GET /health` returns `status`, `chroma_ready`, and `version`. Interactive docs: `/docs`.
+* If Open ALG ingest fails, `POST /oer/search` still returns `ingest_error` and uses the existing Chroma index when possible.
+* GitHub Actions runs `pytest` on push/PR to `main`, `master`, `develop`, or `dev`.
 
 ---
 

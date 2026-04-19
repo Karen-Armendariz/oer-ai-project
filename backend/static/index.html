@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GGC OER AI Assistant</title>
+  <style>
+    :root {
+      --bg: #f6faf7;
+      --panel: #ffffff;
+      --panel-2: #f1f7f3;
+      --border: #d6e3da;
+      --text: #1f2933;
+      --muted: #5f6f64;
+      --accent: #0b6a50;
+      --accent-2: #0e8b6a;
+      --success: #198754;
+      --warn: #b7791f;
+      --font: "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0 0.25rem;
+      margin-bottom: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    header p {
+      margin: 0.1rem 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .header-meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .ggc-banner {
+      display: block;
+      width: 100%;
+      height: 46px;
+      margin-bottom: 0.9rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(11, 106, 80, 0.25);
+      background: #0b6a50;
+    }
+    .ggc-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .chat-shell {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+      box-shadow: 0 16px 40px rgba(11, 106, 80, 0.15);
+      overflow: hidden;
+    }
+    .chat-body {
+      padding: 2rem 2.25rem 1.25rem;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .bubble {
+      max-width: 760px;
+      padding: 1rem 1.25rem;
+      border-radius: 16px;
+      line-height: 1.5;
+      font-size: 0.98rem;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+    }
+    .bubble.user {
+      align-self: flex-end;
+      background: linear-gradient(160deg, rgba(11, 106, 80, 0.15), rgba(14, 139, 106, 0.15));
+      border-color: rgba(11, 106, 80, 0.35);
+    }
+    .bubble strong { color: var(--accent); }
+    .bubble small { color: var(--muted); }
+    .input-row {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: #f6fbf8;
+    }
+    input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(11, 106, 80, 0.2);
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+    button:hover { filter: brightness(1.08); }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .panel-search {
+      border: 1px solid rgba(11, 106, 80, 0.35);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 0.5rem;
+      background: rgba(11, 106, 80, 0.12);
+    }
+    .panel-search strong { color: var(--accent); }
+    .ingest-warn {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--warn);
+      color: #d38c0f;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .loading { color: var(--muted); font-style: italic; }
+    .error {
+      background: rgba(248, 81, 73, 0.12);
+      border: 1px solid #f85149;
+      color: #ff7b72;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    h2.report-title {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin: 1.5rem 0 1rem;
+      letter-spacing: 0.02em;
+    }
+    table.report {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    table.report th {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    table.report td {
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    table.report td:nth-child(1) { color: var(--muted); width: 3.5rem; }
+    table.report td:nth-child(2) { font-weight: 600; }
+    table.report td:nth-child(3) { color: var(--success); max-width: 280px; }
+    table.report td:nth-child(4) { color: var(--accent); white-space: nowrap; }
+    table.report td:nth-child(5) { color: var(--accent); }
+    .detail {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: var(--panel);
+    }
+    .detail h3 {
+      margin: 0;
+      padding: 0.6rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 106, 80, 0.08);
+    }
+    .detail p {
+      margin: 0;
+      padding: 1rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .no-match {
+      border: 1px solid #c43c3c;
+      border-radius: 8px;
+      padding: 1.25rem;
+      background: rgba(196, 60, 60, 0.08);
+    }
+    .no-match h3 { color: #c43c3c; margin: 0 0 0.5rem; }
+    .footer-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+      padding: 0 1.5rem 1.25rem;
+    }
+    .footer-note a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="ggc-banner">
+      <img src="/static/banner_9.png" alt="GGC Grizzly Den Banner" />
+    </div>
+    <header>
+      <div class="brand">
+        <div class="logo">GGC</div>
+        <div>
+          <h1>Georgia Gwinnett College · OER AI Assistant</h1>
+          <p>GGC OER Working Group · Open ALG powered</p>
+        </div>
+      </div>
+      <div class="header-meta">GGC Local Host UI</div>
+    </header>
+
+    <section class="chat-shell">
+      <div class="chat-body">
+        <div class="bubble">
+          <strong>Welcome!</strong> I can evaluate a course syllabus and recommend open
+          educational resources from Open ALG.
+          <br />
+          <small>Enter a course ID below (e.g. BIOL 1101K or ITEC 1001).</small>
+        </div>
+        <div id="status"></div>
+        <div id="out"></div>
+      </div>
+      <div class="input-row">
+        <input
+          id="course"
+          type="text"
+          placeholder="Type a course ID to evaluate…"
+          autocomplete="off"
+        />
+        <button type="button" id="btn">Evaluate</button>
+      </div>
+      <p class="footer-note">
+        API: <a href="/docs">/docs</a> ·
+        Same RAG pipeline as <code>run_agent.sh</code> ·
+        Live Open ALG data; without a key, some metadata may be limited.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const courseEl = document.getElementById("course");
+    const btn = document.getElementById("btn");
+    const statusEl = document.getElementById("status");
+    const outEl = document.getElementById("out");
+
+    function esc(s) {
+      if (s == null) return "";
+      const d = document.createElement("div");
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function accessibility(links) {
+      const s = String(links || "").toLowerCase();
+      return s.includes("pdf") ? "High" : "Medium";
+    }
+
+    function alignment(score) {
+      const n = Number(score) || 0;
+      return Math.round(n) + "%";
+    }
+
+    function summary(res) {
+      const ov = res.keyword_overlap ?? 0;
+      const al = alignment(res.score);
+      return (
+        "This resource aligns with your syllabus keywords (" +
+        ov +
+        " overlaps) and scores " +
+        al +
+        " relevance."
+      );
+    }
+
+    function bubble(html, role = "assistant") {
+      return '<div class="bubble ' + (role === "user" ? "user" : "") + '">' + html + "</div>";
+    }
+
+    function renderResults(q, data) {
+      let html = "";
+      if (data.ingest_error) {
+        html +=
+          '<div class="ingest-warn">' + esc(data.ingest_error) + "</div>";
+      }
+
+      const rows = data.results || [];
+      if (rows.length === 0) {
+        html +=
+          '<div class="no-match">' +
+          "<h3>No semantic matches</h3>" +
+          "<p>No OER resources matched the context of <strong>" +
+          esc(q) +
+          "</strong>. This course may not have available free open textbooks yet.</p>" +
+          "</div>";
+        outEl.innerHTML = bubble(html);
+        return;
+      }
+
+      html +=
+        '<h2 class="report-title">OER RECOMMENDATION REPORT: ' +
+        esc(q) +
+        "</h2>";
+      html += "<table class='report'><thead><tr>";
+      html +=
+        "<th>Rank</th><th>OER Resource Title</th><th>License</th><th>Score</th><th>Accessibility</th>";
+      html += "</tr></thead><tbody>";
+
+      rows.forEach((r, i) => {
+        html += "<tr>";
+        html += "<td>" + (i + 1) + "</td>";
+        html += "<td>" + esc(r.title) + "</td>";
+        html += "<td>" + esc(r.license) + "</td>";
+        html += "<td>" + esc(alignment(r.score)) + "</td>";
+        html += "<td>" + esc(accessibility(r.links)) + "</td>";
+        html += "</tr>";
+      });
+      html += "</tbody></table>";
+
+      rows.forEach((r) => {
+        html += '<div class="detail">';
+        html +=
+          "<h3>Detailed Summary: " +
+          esc(r.title) +
+          "</h3>";
+        html += "<p>" + esc(summary(r)) + "</p>";
+        html += "</div>";
+      });
+
+      outEl.innerHTML = bubble(html);
+    }
+
+    function renderActivity(status) {
+      const lines = status
+        .map((line) => "<li>" + esc(line) + "</li>")
+        .join("");
+      return (
+        '<div class="panel-search"><strong>Live activity</strong><ul style="margin:0.5rem 0 0 1.1rem; color: var(--muted);">' +
+        lines +
+        "</ul></div>"
+      );
+    }
+
+    async function run() {
+      const q = courseEl.value.trim();
+      outEl.innerHTML = "";
+      statusEl.innerHTML = "";
+
+      if (q.length < 3) {
+        statusEl.innerHTML =
+          '<div class="error">Enter a course code with at least 3 characters.</div>';
+        return;
+      }
+
+      btn.disabled = true;
+      courseEl.value = "";
+      const activity = [
+        "Validating course ID…",
+        "Preparing semantic search…",
+      ];
+      statusEl.innerHTML =
+        bubble("<strong>You:</strong> " + esc(q), "user") +
+        bubble(renderActivity(activity));
+
+      if (typeof EventSource !== "undefined") {
+        const es = new EventSource(
+          "/oer/search/stream?course_query=" + encodeURIComponent(q)
+        );
+        es.addEventListener("keywords", (evt) => {
+          activity.push("Extracted keywords");
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+        });
+        es.addEventListener("ingest_start", () => {
+          activity.push("Fetching Open ALG data…");
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+        });
+        es.addEventListener("ingest_done", (evt) => {
+          const payload = JSON.parse(evt.data || "{}");
+          activity.push(
+            "Indexed " + (payload.ingested ?? 0) + " Open ALG resources"
+          );
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+        });
+        es.addEventListener("query", () => {
+          activity.push("Querying vector store…");
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+        });
+        es.addEventListener("rank", () => {
+          activity.push("Ranking recommendations…");
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+        });
+        es.addEventListener("done", (evt) => {
+          const data = JSON.parse(evt.data || "{}");
+          activity.push("Completed.");
+          statusEl.innerHTML =
+            bubble("<strong>You:</strong> " + esc(q), "user") +
+            bubble(renderActivity(activity));
+          renderResults(q, data);
+          btn.disabled = false;
+          es.close();
+        });
+        es.addEventListener("error", () => {
+          statusEl.innerHTML =
+            '<div class="error">Live stream failed. Please retry.</div>';
+          btn.disabled = false;
+          es.close();
+        });
+      } else {
+        try {
+          const res = await fetch("/oer/search", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ course_query: q }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            statusEl.innerHTML =
+              bubble("<strong>You:</strong> " + esc(q), "user") +
+              '<div class="error">' +
+              esc(data.detail || res.statusText || "Request failed") +
+              "</div>";
+            return;
+          }
+          renderResults(q, data);
+        } catch (e) {
+          statusEl.innerHTML =
+            '<div class="error">Network error: ' + esc(String(e)) + "</div>";
+        } finally {
+          btn.disabled = false;
+        }
+      }
+    }
+
+    btn.addEventListener("click", run);
+    courseEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") run();
+    });
+  </script>
+</body>
+</html>

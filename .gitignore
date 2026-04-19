@@ -2,22 +2,13 @@
 __pycache__/
 *.pyc
 
-# Virtual environments
-.venv/
-env/
-
-# Playwright session data
-backend/playwright_user_data/
-
 # OS / editor files
 .DS_Store
 Thumbs.db
 .vscode/
-
-# Scraped output you may not want to commit
-backend/data/syllabi/search_results/
-backend/data/alg_resources/search_results/
-backend/data/syllabi/*.png
-backend/data/syllabi/*.html
-backend/data/syllabi/*.txt
-backend/data/alg_resources/*.txt
+.idea/
+.env
+.venv/
+.cache/
+data/chroma_db/
+backend/playwright_user_data/

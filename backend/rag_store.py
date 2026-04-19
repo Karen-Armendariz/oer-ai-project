@@ -1,0 +1,72 @@
+import logging
+import os
+from pathlib import Path
+
+import chromadb
+from sentence_transformers import SentenceTransformer
+
+logger = logging.getLogger(__name__)
+
+# Suppress technical logs from transformers and tokenizers
+logging.getLogger("transformers").setLevel(logging.ERROR)
+logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+class OERRAGStore:
+    def __init__(self, persist_directory="data/chroma_db", model_name="all-MiniLM-L6-v2"):
+        self.persist_directory = persist_directory
+        self.client = chromadb.PersistentClient(path=persist_directory)
+        self.model = SentenceTransformer(model_name)
+        self.collection = self.client.get_or_create_collection("oer_resources")
+
+    def add_resources(self, resources):
+        """Add list of OER resource dictionaries to the vector store."""
+        ids = []
+        documents = []
+        metadatas = []
+        embeddings = []
+
+        for r in resources:
+            creators = r.get("creators") or []
+            doc_text = (
+                f"Title: {r.get('title')}\n"
+                f"Description: {r.get('description')}\n"
+                f"Creators: {', '.join(creators)}\n"
+                f"License: {r.get('license')}"
+            )
+            
+            # Use sentence-transformers to generate embeddings
+            embedding = self.model.encode(doc_text).tolist()
+            
+            ids.append(str(r.get("id")))
+            documents.append(doc_text)
+            metadatas.append({
+                "title": r.get("title"),
+                "license": r.get("license"),
+                "creators": ", ".join(creators),
+                "links": str(r.get("links"))  # Store as string for metadata
+            })
+            embeddings.append(embedding)
+
+        if ids:
+            self.collection.upsert(
+                ids=ids,
+                documents=documents,
+                metadatas=metadatas,
+                embeddings=embeddings
+            )
+            logger.info("Index updated with %s resources in ChromaDB.", len(ids))
+
+    def query_oer(self, syllabus_text, n_results=5):
+        """Find the most relevant OER resources for the given syllabus text."""
+        query_embedding = self.model.encode(syllabus_text).tolist()
+        
+        results = self.collection.query(
+            query_embeddings=[query_embedding],
+            n_results=n_results
+        )
+        return results
+
+if __name__ == "__main__":
+    store = OERRAGStore()
+    print("OER RAG Store initialized.")
