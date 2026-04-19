@@ -1,11 +1,15 @@
-import chromadb
-from sentence_transformers import SentenceTransformer
-from pathlib import Path
 import logging
 import os
+from pathlib import Path
+
+import chromadb
+from sentence_transformers import SentenceTransformer
+
+logger = logging.getLogger(__name__)
 
 # Suppress technical logs from transformers and tokenizers
 logging.getLogger("transformers").setLevel(logging.ERROR)
+logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class OERRAGStore:
@@ -23,18 +27,24 @@ class OERRAGStore:
         embeddings = []
 
         for r in resources:
-            doc_text = f"Title: {r['title']}\nDescription: {r['description']}\nCreators: {', '.join(r['creators'])}\nLicense: {r['license']}"
+            creators = r.get("creators") or []
+            doc_text = (
+                f"Title: {r.get('title')}\n"
+                f"Description: {r.get('description')}\n"
+                f"Creators: {', '.join(creators)}\n"
+                f"License: {r.get('license')}"
+            )
             
             # Use sentence-transformers to generate embeddings
             embedding = self.model.encode(doc_text).tolist()
             
-            ids.append(str(r['id']))
+            ids.append(str(r.get("id")))
             documents.append(doc_text)
             metadatas.append({
-                "title": r['title'],
-                "license": r['license'],
-                "creators": ", ".join(r['creators']),
-                "links": str(r['links']) # Store as string for metadata
+                "title": r.get("title"),
+                "license": r.get("license"),
+                "creators": ", ".join(creators),
+                "links": str(r.get("links"))  # Store as string for metadata
             })
             embeddings.append(embedding)
 
@@ -45,7 +55,7 @@ class OERRAGStore:
                 metadatas=metadatas,
                 embeddings=embeddings
             )
-            print(f"Index updated with {len(ids)} resources in ChromaDB.")
+            logger.info("Index updated with %s resources in ChromaDB.", len(ids))
 
     def query_oer(self, syllabus_text, n_results=5):
         """Find the most relevant OER resources for the given syllabus text."""

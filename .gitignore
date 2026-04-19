@@ -7,3 +7,8 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+.env
+.venv/
+.cache/
+data/chroma_db/
+backend/playwright_user_data/
