@@ -1,0 +1,10 @@
+.venv
+.cache
+playwright_user_data
+backend/playwright_user_data
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+data/chroma_db

@@ -21,4 +21,6 @@ echo "Installing Playwright Chromium engine..."
 chmod +x run_*.sh 2>/dev/null || true
 
 echo "--- Setup Complete ---"
-echo "You can now run your scripts using ./run_ingest.sh or ./run_search.sh"
+echo "Run tests:  ./run_tests.sh"
+echo "Run API:    ./run_api.sh"
+echo "Scrapers:   ./run_search.sh  or  ./run_ingest.sh"
