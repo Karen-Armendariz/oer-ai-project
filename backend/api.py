@@ -3,10 +3,13 @@ import logging
 import queue
 import threading
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.exception_handlers import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, model_validator
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pathlib import Path
@@ -17,6 +20,7 @@ from backend.config import Settings
 from backend.logging_setup import configure_logging
 from backend.oer_service import OERService
 from backend.schemas import HealthResponse, SearchRequest, SearchResponse
+from backend.search_syllabus import scrape_syllabus
 
 logger = logging.getLogger(__name__)
 settings = Settings()
@@ -75,6 +79,10 @@ _setup_cors(app)
 app.mount("/static", StaticFiles(directory=Path(__file__).resolve().parent / "static"), name="static")
 
 
+class CourseRequest(BaseModel):
+    course: str
+
+
 class SearchBody(SearchRequest):
     @model_validator(mode="after")
     def require_payload(self):
@@ -127,6 +135,20 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
         status_code=500,
         content={"detail": "Internal server error"},
     )
+
+
+@app.get("/")
+def root():
+    return {"message": "OER AI backend is running"}
+
+
+@app.post("/search-syllabus")
+def search_syllabus_endpoint(request: CourseRequest):
+    try:
+        result = scrape_syllabus(request.course)
+        return {"success": True, "result": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/health", response_model=HealthResponse)
