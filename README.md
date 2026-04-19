@@ -109,6 +109,8 @@ From the project root:
 ./run_api.sh
 ```
 
+**Web UI (same behavior as `run_agent.sh`):** open **http://localhost:8000/ui** in your browser, enter a course code, and view the recommendation report.
+
 Example request:
 
 ```
