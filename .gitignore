@@ -12,3 +12,4 @@ Thumbs.db
 .cache/
 data/chroma_db/
 backend/playwright_user_data/
+backend/data/syllabi/search_results/
