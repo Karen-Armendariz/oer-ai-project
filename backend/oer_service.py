@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
-from turtle import distance
+
 
 from backend.config import Settings
 from backend.keywording import extract_keywords_from_syllabus, clean_html, build_rag_query_text
