@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
+from turtle import distance
 
 from backend.config import Settings
 from backend.keywording import extract_keywords_from_syllabus, clean_html, build_rag_query_text
@@ -55,6 +56,17 @@ class OERService:
             resolved_text = course_query or ""
 
         keywords = extract_keywords_from_syllabus(resolved_text, course_query=course_query)
+        course_expansions = {
+             "ENGL 1101": "English Composition I writing rhetoric essays research composition",
+             "ENGL 1102": "English Composition II writing literature research argument essays",
+             "HIST 2111": "United States History I American history to 1877 colonial America revolution colonial period civil war",
+             "HIST 2112": "United States History II American history since 1877 reconstruction modern America",
+        }
+
+        if course_query:
+            normalized_course = course_query.upper().strip()    
+            if normalized_course in course_expansions:
+               keywords.extend(course_expansions[normalized_course].split())
         logger.info("Keywords extracted: %s", keywords)
         if progress_cb:
             progress_cb("keywords", {"keywords": keywords})
@@ -75,13 +87,20 @@ class OERService:
                 progress_cb("ingest_error", {"message": ingest_error})
 
         query_text = build_rag_query_text(resolved_text, keywords, course_query=course_query)
+        
+        if course_query:
+            normalized_course = course_query.upper().strip()
+            if normalized_course in course_expansions:
+                query_text = f"{course_query} {course_expansions[normalized_course]} {query_text}"
+        
+        
         k = max(self.settings.retrieval_top_k, self.settings.max_results)
         if progress_cb:
             progress_cb("query", {"top_k": k})
         results = self.store.query_oer(query_text, n_results=k)
         if progress_cb:
             progress_cb("rank", {})
-        ranked = self._rank_results(results, keywords)
+        ranked = self._rank_results(results, keywords, course_query=course_query)
 
         return {
             "query": course_query,
@@ -91,7 +110,7 @@ class OERService:
             "ingest_error": ingest_error,
         }
 
-    def _rank_results(self, results: dict, keywords: list[str]) -> list[dict]:
+    def _rank_results(self, results: dict, keywords: list[str], course_query: str | None = None) -> list[dict]:
         if not results or not results.get("documents"):
             return []
 
@@ -105,12 +124,16 @@ class OERService:
                 return None
             doc_lower = doc.lower()
             overlap = sum(1 for kw in keyword_set if kw in doc_lower)
+            course_match = bool(course_query and course_query.lower() in doc_lower)
             if not relaxed:
-                if distance > self.settings.distance_threshold or overlap < self.settings.keyword_min_overlap:
+                if not course_match and (
+                     distance > self.settings.distance_threshold
+                      or overlap < self.settings.keyword_min_overlap
+        ) :
                     return None
             else:
-                if distance > 1.35:
-                    return None
+                 if not course_match and distance > 1.35:
+                      return None
             similarity = max(0.0, 1.0 - min(distance, 2.0) / 2.0)
             overlap_score = min(overlap / max(len(keyword_set), 1), 1.0)
             score = round((0.7 * similarity + 0.3 * overlap_score) * 100, 2)
